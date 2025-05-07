@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #833ab4;
+        background: linear-gradient(
+          90deg,
+          rgba(131, 58, 180, 1) 0%,
+          rgba(199, 30, 30, 1) 48%,
+          rgba(252, 176, 69, 1) 100%
+        );
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+      }
+
+      .buy-block {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+      }
+
+      .buy-block button {
+        margin: 0 5px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #673ab7;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .buy-block button:hover {
+        background-color: #512da8;
+      }
+      .product-block {
+        /* position: relative;
+        margin: 20px 0 0 20px;
+        width: 300px;
+        height: auto;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        padding: 15px;
+        width: 100%;
+        text-align: center
+      }
+      .img-prod img {
+        width: 100%;
+        height: auto;
+      }
+      .img-prod {
+        margin-top: 10px;
+      }
+
+      .like-button {
+        right: 12px;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background-color: #e91e63;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .like-button::before {
+        content: "♥";
+        color: white;
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        line-height: 35px;
+      }
+      .buttons-container > div {
+        width: 50%;
+        display: inline-block;
+      }
+      .buttons-container{
+        width: 100%;
+      }
+      .left-container{
+      text-align: left;
+      }
+      .right-container{
+      text-align: right;
+      }
+      .product.inactive {
+        opacity: 0.5;
+        filter: grayscale(100%);
+      }
+      .product{
+        display: inline-block;
+        border-radius: 10px;
+        width: 300px;
+        background-color: white;
+        padding: 12px;
+        position: relative;
+        margin: 0 5px 5px 0;
+      }
+      .product.inactive .buttons-container button:hover{
+        cursor: default;
+        background-color: #673ab7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-block">
+      <div class="product">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product inactive">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product inactive">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product inactive">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product inactive">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
