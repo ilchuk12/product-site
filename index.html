@@ -56,6 +56,7 @@
       }
       .img-prod {
         margin-top: 10px;
+        margin-bottom: 10px;
       }
 
       .like-button {
@@ -102,11 +103,25 @@
         padding: 12px;
         position: relative;
         margin: 0 5px 5px 0;
+        border: rgba(0, 128, 0, 0) 10px solid;
       }
       .product.inactive .buttons-container button:hover{
         cursor: default;
         background-color: #673ab7;
       }
+      .selected{border: rgb(0, 128, 0) 10px solid;}
+      .absolute-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
     </style>
   </head>
   <body>
@@ -126,7 +141,53 @@
         <div class="buy-block">
           <div class="buttons-container">
             <div class="left-container">
-              <button class="add-cart">Add Cart</button>
+              <button class="add-cart" onclick="selectProduct(event)">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Microsoft_Edge_logo_%282019%29.svg/1200px-Microsoft_Edge_logo_%282019%29.svg.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Edge Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart" onclick="selectProduct(event)">Add Cart</button>
+            </div
+            ><div class="right-container">
+              <button class="buy-now">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product">
+        <button class="like-button"></button>
+
+        <div class="img-prod">
+          <img
+            src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_c65522c8f7bacfdc0684fc8d26bba00d/mozilla-firefox.png"
+            alt="img"
+          />
+        </div>
+        <div class="text-prod">Chrome Browser</div>
+        <div class="shipping-info">Shipped now on email</div>
+        <div class="price-prod">0.99$</div>
+        <div class="buy-block">
+          <div class="buttons-container">
+            <div class="left-container">
+              <button class="add-cart" onclick="selectProduct(event)">Add Cart</button>
             </div
             ><div class="right-container">
               <button class="buy-now">Buy</button>
@@ -149,7 +210,7 @@
         <div class="buy-block">
           <div class="buttons-container">
             <div class="left-container">
-              <button class="add-cart">Add Cart</button>
+              <button class="add-cart" onclick="selectProduct(event)">Add Cart</button>
             </div
             ><div class="right-container">
               <button class="buy-now">Buy</button>
@@ -172,53 +233,7 @@
         <div class="buy-block">
           <div class="buttons-container">
             <div class="left-container">
-              <button class="add-cart">Add Cart</button>
-            </div
-            ><div class="right-container">
-              <button class="buy-now">Buy</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="product inactive">
-        <button class="like-button"></button>
-
-        <div class="img-prod">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
-            alt="img"
-          />
-        </div>
-        <div class="text-prod">Chrome Browser</div>
-        <div class="shipping-info">Shipped now on email</div>
-        <div class="price-prod">0.99$</div>
-        <div class="buy-block">
-          <div class="buttons-container">
-            <div class="left-container">
-              <button class="add-cart">Add Cart</button>
-            </div
-            ><div class="right-container">
-              <button class="buy-now">Buy</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="product inactive">
-        <button class="like-button"></button>
-
-        <div class="img-prod">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png"
-            alt="img"
-          />
-        </div>
-        <div class="text-prod">Chrome Browser</div>
-        <div class="shipping-info">Shipped now on email</div>
-        <div class="price-prod">0.99$</div>
-        <div class="buy-block">
-          <div class="buttons-container">
-            <div class="left-container">
-              <button class="add-cart">Add Cart</button>
+              <button class="add-cart" onclick="selectProduct(event)">Add Cart</button>
             </div
             ><div class="right-container">
               <button class="buy-now">Buy</button>
@@ -227,5 +242,35 @@
         </div>
       </div>
     </div>
+    <button class="absolute-btn" onclick="alertSelected()">Cart</button>
   </body>
+  <script>
+    function selectProduct(event) {
+      var button = event.target;
+      var product = button.parentNode.parentNode.parentNode.parentNode;
+
+      if (!product.classList.contains("inactive")){
+        product.classList.toggle("selected");
+        product.classList.remove("sel")
+      }
+      if(product.classList.contains("selected")){
+        product.classList.add("sel");
+      }
+    }
+
+    function alertSelected() {
+      var selectedElements;
+
+      selectedElements = document.getElementsByClassName("sel");
+
+      var message = 'Products in cart:' + '\n\n';
+      for (let i = 0; i < selectedElements.length; i++) {
+        const product = selectedElements[i];
+        const name = product.getElementsByClassName("text-prod")[0].innerText;
+        message += name + '\n';
+      }
+
+      alert(message);
+    }
+  </script>
 </html>
